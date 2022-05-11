@@ -22,9 +22,9 @@ jobs:
           channelId: live
           projectId: nnnn-ng-ssr
 
-      - name: deploy function
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --message \"${{ github.event.head_commit.message }}\" --only function
-        env:
-          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NNNN_NG_SSR }}
+#      - name: deploy function
+#        uses: w9jds/firebase-action@master
+#        with:
+#          args: deploy --message \"${{ github.event.head_commit.message }}\" --only function
+#        env:
+#          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NNNN_NG_SSR }}
