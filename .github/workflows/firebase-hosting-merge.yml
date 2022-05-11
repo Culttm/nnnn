@@ -12,8 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: install build prepare
-
-        run: npm ci && npm run build:ssr && cp -a functions/dist/browser/. public/ && mv public/index.html  public/index2.html
+        run: npm ci && npm run build:ssr && cp -a functions/dist/browser/. public/ && mv public/index.html public/index2.html && cd functions/ && npm ci && npm run build
 
       - name: deploy hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
@@ -24,7 +23,6 @@ jobs:
           projectId: nnnn-ng-ssr
 
       - name: deploy function
-        run: cd functions/ && npm ci && npm run build
         uses: w9jds/firebase-action@master
         with:
           args: deploy --message \"${{ github.event.head_commit.message }}\" --only function
